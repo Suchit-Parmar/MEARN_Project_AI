@@ -71,9 +71,13 @@ app.use('/api/access', accessCodeRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5001;
+// Conditional listen for local development
+if (process.env.NODE_ENV !== 'production' && process.env.VERCEL !== '1') {
+  const PORT = process.env.PORT || 5001;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+    console.log(`📊 API: http://localhost:${PORT}/api`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  console.log(`📊 API: http://localhost:${PORT}/api`);
-});
+export default app;
