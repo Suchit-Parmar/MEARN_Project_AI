@@ -1,14 +1,1 @@
-# TODO: Fix Vercel Build - Three.js Incompatibility
-
-## Steps:
-1. ✅ [Complete] Update frontend/package.json: 
-   - three -> ^0.169.0
-   - @react-three/drei -> ^9.122.0
-
-2. [Pending] cd frontend && npm install
-
-3. [Pending] cd frontend && npm run build (verify fix)
-
-4. [Pending] git add . && git commit -m "fix: update three.js to resolve BatchedMesh import error" && git push
-
-5. [Pending] Retry Vercel deploy
+# Build Fix TODO\n\n- [x] Step 1: Edit frontend/src/pages/Dashboard.jsx - Replace 'Recipe' lucide icon with 'BookOpen' ✓\n- [x] Step 2: Edit frontend/package.json - Use existing @react-three/drei ^9.122.0 ✓\n- [ ] Step 3: Run `npm install --prefix frontend` to update dependencies/lockfile\n- [ ] Step 4: Test `npm run build --prefix frontend` - Verify no errors\n- [ ] Step 5: Commit/push changes for Vercel redeploy
