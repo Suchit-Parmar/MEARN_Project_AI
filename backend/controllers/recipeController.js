@@ -176,7 +176,7 @@ export const createRecipe = async (req, res, next) => {
 
     let recipeImage = '/uploads/sample.jpg';
     if (req.file) {
-      recipeImage = `/uploads/${req.file.filename}`;
+      recipeImage = req.file.path;
     } else if (imageUrl) {
       recipeImage = imageUrl;
     }
@@ -246,7 +246,7 @@ export const updateRecipe = async (req, res, next) => {
     if (isPublic !== undefined) recipe.isPublic = isPublic;
 
     if (req.file) {
-      recipe.image = `/uploads/${req.file.filename}`;
+      recipe.image = req.file.path;
     }
 
     const updatedRecipe = await recipe.save();
